@@ -44,7 +44,7 @@ func (mode *BuildMode) Set(s string) error {
 	case "pie":
 		switch objabi.GOOS {
 		case "aix", "android", "linux", "windows", "darwin", "ios":
-		case "freebsd":
+		case "freebsd", "openbsd":
 			switch objabi.GOARCH {
 			case "amd64":
 			default:
@@ -57,7 +57,7 @@ func (mode *BuildMode) Set(s string) error {
 	case "c-archive":
 		switch objabi.GOOS {
 		case "aix", "darwin", "ios", "linux":
-		case "freebsd":
+		case "freebsd", "openbsd":
 			switch objabi.GOARCH {
 			case "amd64":
 			default:
@@ -106,7 +106,7 @@ func (mode *BuildMode) Set(s string) error {
 			default:
 				return badmode()
 			}
-		case "freebsd":
+		case "freebsd", "openbsd":
 			switch objabi.GOARCH {
 			case "amd64":
 			default:
